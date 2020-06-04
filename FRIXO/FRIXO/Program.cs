@@ -25,6 +25,7 @@ namespace FRIXO
             bool nl = true;
             bool cmd = true;
 
+            //input.Split(' ')[1]
             while (run)
             {
                 Color(ConsoleColor.White);
@@ -85,6 +86,28 @@ namespace FRIXO
                             if (nl) Console.WriteLine();
                         }
                         Console.WriteLine();
+                        break;
+
+                    case "calc":
+                        //2+3
+                        //*12
+                        //2Do -> loop
+                        if (input.Split(' ')[1].Contains("+")) {
+                            Console.WriteLine(input.Split(' ')[1] + " = " + long.Parse(input.Split(' ')[1].Split('+')[0]) + long.Parse(input.Split(' ')[1].Split('+')[1]));
+                        }
+                        if (input.Split(' ')[1].Contains("-"))
+                        {
+                            Console.WriteLine(input.Split(' ')[1] + " = " + (long.Parse(input.Split(' ')[1].Split('-')[0]) - long.Parse(input.Split(' ')[1].Split('-')[1])));
+                        }
+                        if (input.Split(' ')[1].Contains("*"))
+                        {
+                            Console.WriteLine(input.Split(' ')[1] + " = " + (long.Parse(input.Split(' ')[1].Split('*')[0]) * int.Parse(input.Split(' ')[1].Split('*')[1])));
+                        }
+                        if (input.Split(' ')[1].Contains("/"))
+                        {
+                            Console.WriteLine(input.Split(' ')[1] + " = " + (long.Parse(input.Split(' ')[1].Split('/')[0]) / long.Parse(input.Split(' ')[1].Split('/')[1])));
+                        }
+
                         break;
 
                     case "drive":
