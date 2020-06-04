@@ -255,7 +255,13 @@ namespace FRIXO
         {
             BColor(bc);
             Color(ConsoleColor.White);
-            Console.WriteLine("FRIXO v1\n");
+            //Console.WriteLine("FRIXO v1\n");
+            Console.WriteLine(@" .____                     
+ /     .___  ` _  .-   __. 
+ |__.  /   \ |  \,'  .'   \
+ |     |   ' |  /\   |    |
+ /     /     / /  \   `._.' 0.2.0
+                           ");
             Color(c);
         }
 
