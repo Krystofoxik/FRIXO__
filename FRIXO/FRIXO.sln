@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FRIXO", "FRIXO\FRIXO.csproj", "{77EB92E4-13B9-4D30-86D9-7FCF43A4B69F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77EB92E4-13B9-4D30-86D9-7FCF43A4B69F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77EB92E4-13B9-4D30-86D9-7FCF43A4B69F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77EB92E4-13B9-4D30-86D9-7FCF43A4B69F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77EB92E4-13B9-4D30-86D9-7FCF43A4B69F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C31741D4-6FBA-4125-9E1B-421F595D28E7}
+	EndGlobalSection
+EndGlobal
