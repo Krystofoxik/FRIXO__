@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
@@ -32,6 +33,7 @@ namespace FRIXO
                 if (pre) Console.Write(path + prefix);
                 Color(c);
                 BColor(bc);
+
 
                 string input = Console.ReadLine();
 
@@ -93,7 +95,7 @@ namespace FRIXO
                         //*12
                         //2Do -> loop
                         if (input.Split(' ')[1].Contains("+")) {
-                            Console.WriteLine(input.Split(' ')[1] + " = " + long.Parse(input.Split(' ')[1].Split('+')[0]) + long.Parse(input.Split(' ')[1].Split('+')[1]));
+                            Console.WriteLine(input.Split(' ')[1] + " = " + (long.Parse(input.Split(' ')[1].Split('+')[0]) + long.Parse(input.Split(' ')[1].Split('+')[1])));
                         }
                         if (input.Split(' ')[1].Contains("-"))
                         {
@@ -176,6 +178,30 @@ namespace FRIXO
                             }
                         }
                         Console.CursorVisible = true;
+                        break;
+
+                    case "cetnost":
+                        List<int> cisla = new List<int>();
+                        List<int> ind = new List<int>();
+                        string[] inp = Console.ReadLine().Split(' ');
+                        foreach (string d in inp)
+                        {
+                            int i = int.Parse(d);
+
+                            if (!cisla.Contains(i))
+                            {
+                                cisla.Add(i);
+                                ind.Add(1);
+                            }
+                            else ind[cisla.IndexOf(i)] += 1;
+
+                        }
+
+                        Console.WriteLine();
+                        for (int i = 0; i < cisla.Count; i++)
+                        {
+                            Console.WriteLine(cisla[i] + " - " + ind[cisla.IndexOf(cisla[i])]);
+                        }
                         break;
 
                     case "color":
