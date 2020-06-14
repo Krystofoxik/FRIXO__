@@ -94,7 +94,8 @@ namespace FRIXO
                         //2+3
                         //*12
                         //2Do -> loop
-                        if (input.Split(' ')[1].Contains("+")) {
+                        if (input.Split(' ')[1].Contains("+"))
+                        {
                             Console.WriteLine(input.Split(' ')[1] + " = " + (long.Parse(input.Split(' ')[1].Split('+')[0]) + long.Parse(input.Split(' ')[1].Split('+')[1])));
                         }
                         if (input.Split(' ')[1].Contains("-"))
@@ -110,6 +111,10 @@ namespace FRIXO
                             Console.WriteLine(input.Split(' ')[1] + " = " + (long.Parse(input.Split(' ')[1].Split('/')[0]) / long.Parse(input.Split(' ')[1].Split('/')[1])));
                         }
 
+                        break;
+
+                    case "calc2":
+                        Console.WriteLine(input.Split(' ')[1] + " = " + EvalExpression(input.Split(' ')[1].ToCharArray()));
                         break;
 
                     case "drive":
@@ -234,6 +239,60 @@ namespace FRIXO
             Console.ReadKey();
         }
 
+        // MATH CREDIT: https://www.youtube.com/watch?v=CVSlVTvoMmA
+        private static double EvalExpression(char[] expr)
+        {
+            return parseSummands(expr, 0);
+        }
+
+        private static double parseSummands(char[] expr, int index)
+        {
+            double x = parseFactors(expr, ref index);
+            while (true)
+            {
+                char op = expr[index];
+                if ((op != '+') && (op != '-'))
+                    return x;
+                index++;
+                double y = parseFactors(expr, ref index);
+                if (op == '+')
+                    x += y;
+                else
+                    x -= y;
+
+            }
+        }
+
+        private static double parseFactors(char[] expr, ref int index)
+        {
+            double x = GetDouble(expr, ref index);
+            while (true) {
+                char op = expr[index];
+                if ((op != '/') && (op != '*'))
+                    return x;
+                index++;
+                double y = GetDouble(expr, ref index);
+                if (op == '/')
+                    x /= y;
+                else
+                    x *= y;
+
+            }
+        }
+
+        private static double GetDouble(char[] expr, ref int index) {
+            string dbl = "";
+            while (((int)expr[index] >= 48 && (int)expr[index] <= 57) || expr[index] == 48) {
+                dbl += expr[index].ToString();
+                index++;
+                if (index == expr.Length) {
+                    index--;
+                    break;
+                }
+            }
+            return double.Parse(dbl);
+        }
+
         static void RColor(ConsoleColor c)
         {
             switch (c)
@@ -309,7 +368,7 @@ namespace FRIXO
  /     .___  ` _  .-   __. 
  |__.  /   \ |  \,'  .'   \
  |     |   ' |  /\   |    |
- /     /     / /  \   `._.' 0.2.0
+ /     /     / /  \   `._.' 0.3.0
                            ");
             Color(c);
         }
