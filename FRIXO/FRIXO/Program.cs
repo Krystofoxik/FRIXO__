@@ -91,9 +91,6 @@ namespace FRIXO
                         break;
 
                     case "calc":
-                        //2+3
-                        //*12
-                        //2Do -> loop
                         if (input.Split(' ')[1].Contains("+"))
                         {
                             Console.WriteLine(input.Split(' ')[1] + " = " + (long.Parse(input.Split(' ')[1].Split('+')[0]) + long.Parse(input.Split(' ')[1].Split('+')[1])));
@@ -207,6 +204,19 @@ namespace FRIXO
                         {
                             Console.WriteLine(cisla[i] + " - " + ind[cisla.IndexOf(cisla[i])]);
                         }
+                        break;
+
+                    case "file":
+                        List<string> lines = new List<string>();
+                        string line = "";
+                        while(!string.IsNullOrEmpty(line = Console.ReadLine())) {
+                            lines.Add(line);
+                        }
+
+                        //File.Create(path + "\\" + input.Split(' ')[1]);
+                        File.WriteAllLines(path + "\\" + input.Split(' ')[1], lines.ToArray());
+                        Console.WriteLine("Created File " + input.Split(' ')[1] + " with " + lines.Count + " lines");
+
                         break;
 
                     case "color":
@@ -368,7 +378,7 @@ namespace FRIXO
  /     .___  ` _  .-   __. 
  |__.  /   \ |  \,'  .'   \
  |     |   ' |  /\   |    |
- /     /     / /  \   `._.' 0.3.0
+ /     /     / /  \   `._.' 0.4.0
                            ");
             Color(c);
         }
