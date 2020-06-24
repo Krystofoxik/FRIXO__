@@ -17,6 +17,7 @@ Frixo comes with cmd support so it won't be ever smaller than classic cmd.  Your
 - matrix
 - cetnost
 - file
+- caesar
 - color
 - bcolor
 - clear
