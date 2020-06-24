@@ -218,6 +218,9 @@ namespace FRIXO
                         Console.WriteLine("Created File " + input.Split(' ')[1] + " with " + lines.Count + " lines");
 
                         break;
+                    case "caesar":
+                        Console.WriteLine("- \n" + Caesar(Console.ReadLine(), int.Parse(input.Split(' ')[1])));
+                        break;
 
                     case "color":
                         c = (ConsoleColor)Enum.Parse(typeof(ConsoleColor), input.Split(' ')[1]);
@@ -303,6 +306,24 @@ namespace FRIXO
             return double.Parse(dbl);
         }
 
+        static string Caesar(string value, int shift)
+        {
+            char[] buffer = value.ToCharArray();
+            for (int i = 0; i < buffer.Length; i++)
+            {
+                char letter = buffer[i];
+                letter = (char)(letter + shift);
+                
+                if (letter > '}') 
+                    letter = (char)(letter - 93);
+                else if (letter < ' ')  
+                    letter = (char)(letter + 93);
+
+                buffer[i] = letter;
+            }
+            return new string(buffer);
+        }
+
         static void RColor(ConsoleColor c)
         {
             switch (c)
@@ -378,7 +399,7 @@ namespace FRIXO
  /     .___  ` _  .-   __. 
  |__.  /   \ |  \,'  .'   \
  |     |   ' |  /\   |    |
- /     /     / /  \   `._.' 0.4.0
+ /     /     / /  \   `._.' 0.5.0
                            ");
             Color(c);
         }
